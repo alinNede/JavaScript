@@ -23,7 +23,7 @@ function loadButtons() {
         addButton();
         --buttonsToload;
     }
-    winnerId = selectWinner();
+    
 }
 
 function selectWinner() {
@@ -50,6 +50,7 @@ function addListenerToButtons() {
 generator.addEventListener("click", function() {
     buttonsToload = parseInt(numberInput.value);
     loadButtons();
+    winnerId = selectWinner();
     addListenerToButtons();
 });
 
