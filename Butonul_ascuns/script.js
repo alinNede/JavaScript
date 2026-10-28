@@ -30,23 +30,27 @@ function selectWinner() {
     return Math.floor(Math.random() * numberOfButtons);
 }
 
-generator.addEventListener("click", function() {
-    buttonsToload = parseInt(numberInput.value);
-    loadButtons();
-
-    let buttonElements = document.getElementsByClassName("btn btn-outline-secondary btn-lg");
-    let revealButton = function() {
-        if (this.id == "button-" + winnerId.toString()) {
-            this.textContent = "Winner";
-            this.className = "btn btn-success btn-lg";
-        } else {
-            this.textContent = "Lost";
-            this.className = "btn btn-danger btn-lg";
-        }
+let revealButton = function() {
+    if (this.id == "button-" + winnerId.toString()) {
+        this.textContent = "Winner";
+        this.className = "btn btn-success btn-lg";
+    } else {
+        this.textContent = "Lost";
+        this.className = "btn btn-danger btn-lg";
     }
+}
+
+function addListenerToButtons() {
+    let buttonElements = document.getElementsByClassName("btn btn-outline-secondary btn-lg");
     for (let i = 0; i < buttonElements.length ; ++i) {
         buttonElements[i].addEventListener("click", revealButton);
     }
+}
+
+generator.addEventListener("click", function() {
+    buttonsToload = parseInt(numberInput.value);
+    loadButtons();
+    addListenerToButtons();
 });
 
 
