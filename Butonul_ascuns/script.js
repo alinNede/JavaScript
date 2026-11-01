@@ -19,14 +19,20 @@ function addButton() {
 function loadButtons() {
     containerButton.innerHTML = "";
     numberOfButtons = 0;
-    while (buttonsToload > 0) {
+    for (;buttonsToload > 0; --buttonsToload) {
         addButton();
-        --buttonsToload;
     }
 }
 
 function selectWinner() {
     return Math.floor(Math.random() * numberOfButtons);
+}
+
+function addListenerToButtons() {
+    let buttonElements = document.getElementsByClassName("btn btn-outline-secondary btn-lg");
+    for (let i = 0; i < buttonElements.length ; ++i) {
+        buttonElements[i].addEventListener("click", revealButton);
+    }
 }
 
 let revealButton = function() {
@@ -36,13 +42,6 @@ let revealButton = function() {
     } else {
         this.textContent = "Lost";
         this.className = "btn btn-danger btn-lg";
-    }
-}
-
-function addListenerToButtons() {
-    let buttonElements = document.getElementsByClassName("btn btn-outline-secondary btn-lg");
-    for (let i = 0; i < buttonElements.length ; ++i) {
-        buttonElements[i].addEventListener("click", revealButton);
     }
 }
 
