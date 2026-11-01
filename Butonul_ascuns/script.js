@@ -23,7 +23,6 @@ function loadButtons() {
         addButton();
         --buttonsToload;
     }
-    
 }
 
 function selectWinner() {
