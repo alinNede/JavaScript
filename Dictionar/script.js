@@ -22,7 +22,7 @@ function findWord(word) {
     }
 }
 
-saveButton.addEventListener("click", function() {
+function clickSaveButton() {
     let inputText = toSaveElementId.value;
     let translatedText = translatedElementId.value;
     if (inputText && translatedText) {
@@ -30,11 +30,14 @@ saveButton.addEventListener("click", function() {
     } 
     toSaveElementId.value = "";
     translatedElementId.value = "";
-});
+}
 
-findButton.addEventListener("click", function() {
+function clickFindButton() {
     let searchText = searchElementId.value;
     findWord(searchText);
     searchElementId.value = "";
-});
+}
 
+saveButton.addEventListener("click", clickSaveButton); 
+
+findButton.addEventListener("click", clickFindButton);
