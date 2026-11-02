@@ -35,7 +35,7 @@ function addListenerToButtons() {
     }
 }
 
-let revealButton = function() {
+function revealButton() {
     if (this.id == "button-" + winnerId.toString()) {
         this.textContent = "Winner";
         this.className = "btn btn-success btn-lg";
